@@ -1,1 +1,1 @@
-web: gunicorn tictactoe.wsgi
+web: gunicorn ticTacToe.wsgi
