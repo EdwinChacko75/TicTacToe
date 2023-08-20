@@ -40,8 +40,14 @@ def evaluation(board, computer, player):
     else:
         return 0
 
+memo_cache = {}
 
 def minmax(gameBoard, computer, player, isMaximizing, depth):
+    key = str(gameBoard) + str(isMaximizing) + str(depth)
+    
+    if key in memo_cache:
+        return memo_cache[key]
+
     score = evaluation(gameBoard, computer, player)
     
     if score == 10:
@@ -65,10 +71,9 @@ def minmax(gameBoard, computer, player, isMaximizing, depth):
                     bestScore = currentScore
                     bestMove = (i, j)
 
+    memo_cache[key] = (bestScore, bestMove)
     return bestScore, bestMove
 
-# x,y = minmax([['O', 'X', ''], ['', '', 'X'], ['', '', '']], 'O', 'X', True)
-# print(x,y)
 def makeMove(request):
     data = json.loads(request.body)
     gameBoard = data['board']
