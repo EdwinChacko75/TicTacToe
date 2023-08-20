@@ -101,6 +101,3 @@ def makeMove(request):
         'gameBoard': gameBoard,
     }
     return JsonResponse(response_data)
-
-
-
