@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'main.css' %}">
-    <link rel="stylesheet" href="{% static 'global.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'global.css' %}"> -->
     <script src="{% static 'main.js' %}"></script>
 
     <title>Tic Tac Toe</title>
@@ -17,8 +17,10 @@
 <div id="reset">
     <button onclick="resetGame()" id="resetButton">New Game</button>
 </div>
-<div id="overMessage"> Draw!</div>
+<div id="overMessage">Draw!</div>
+
 <div id="board">     
+
 {% for row in board %}
     <div class="row">
         {% for col in row %}
